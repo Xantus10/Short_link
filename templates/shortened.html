@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src='{{ url_for("static", filename="scripts/shortened.js") }}'></script>
+  <link rel='stylesheet' href='{{ url_for("static", filename="styles/default.css") }}'>
+  <link rel='stylesheet' href='{{ url_for("static", filename="styles/shortened.css") }}'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShortUrl</title>
+</head>
+<body>
+  <div class="headerContainer">
+    <h1>ShortUrl</h1>
+    <p>When shorter is better than longer</p>
+  </div>
+  <div class="contentContainer">
+    <h3>Successfully shortened!</h3>
+    <div class="inlineContainer">
+      <p>Your new url: </p>
+      <p id="urlaft">{{after}}</p>
+      <button onclick="copy();">Copy link</button>
+    </div>
+    <div class="inlineContainer" id="small">
+      <p>Original url: </p>
+      <p id="urlbef">{{before}}</p>
+    </div>
+  </div>
+  <div class="footerContainer">
+    <p>ShortUrl</p>
+    <p>2024</p>
+  </div>
+</body>
+</html>

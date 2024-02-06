@@ -1,0 +1,50 @@
+html {
+  height: 100%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgb(180, 180, 241);
+}
+
+::selection {
+  background: #2f2f2f;
+  color: whitesmoke;
+}
+
+div.headerContainer {
+  display: flex;
+  flex-direction: column;
+  width: 94%;
+  height: 10%;
+  background-color: whitesmoke;
+  box-shadow: 8px 8px 30px #141414;
+  padding: 3%;
+  border-radius: 5px;
+}
+
+div.headerContainer h1 {
+  font-size: 34px;
+  font-weight: 1100;
+}
+
+div.headerContainer p {
+  font-size: 16px;
+  color: #2c2c2c;
+}
+
+div.footerContainer {
+  display: flex;
+  width: 93%;
+  margin: auto;
+  height: 6%;
+  padding: 3%;
+  background-color: whitesmoke;
+  box-shadow: 0px -5px 30px #141414;
+  flex-direction: row;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 0px;
+}
+
+div.footerContainer p {
+  font-size: 11px;
+  color: #646464;
+}

@@ -1,0 +1,55 @@
+div.contentContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: rgb(10, 70, 200);
+  color: whitesmoke;
+  padding: 1%;
+  width: 65%;
+  height: 50%;
+  margin: 20px 0px 0px 10%;
+  box-shadow: 4px 4px 25px dodgerblue;
+}
+
+div.contentContainer h3 {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+div.inlineContainer {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-direction: row;
+}
+
+div.inlineContainer p {
+  font-size: 14px;
+}
+
+div.inlineContainer p:nth-child(2) {
+  font-size: 22px;
+  font-weight: 400;
+}
+
+div.inlineContainer button {
+  color: black;
+  background-color: rgb(89, 157, 224);
+  height: fit-content;
+  padding: 5px;
+  border-radius: 100px;
+  border: 2px #2c2c2c solid;
+}
+
+div.inlineContainer button:hover {
+  padding: 6px;
+}
+
+#small p {
+  font-size: 10px;
+}
+
+#small p:nth-child(2) {
+  font-size: 12px;
+  font-weight: 100;
+}

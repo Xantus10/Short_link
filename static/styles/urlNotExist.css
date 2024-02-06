@@ -1,0 +1,18 @@
+div.contentContainer {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  background-color: rgb(10, 70, 200);
+  color: whitesmoke;
+  padding: 1%;
+  width: 35%;
+  height: 45%;
+  min-height: 250px;
+  margin: 20px 0px 0px 10%;
+  box-shadow: 4px 4px 25px dodgerblue;
+}
+
+div.contentContainer h3 {
+  font-size: 24px;
+  font-weight: 500;
+}

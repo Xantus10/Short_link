@@ -1,0 +1,39 @@
+div.contentContainer {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  background-color: rgb(10, 70, 200);
+  color: whitesmoke;
+  padding: 1%;
+  width: 35%;
+  height: 45%;
+  min-height: 250px;
+  margin: 20px 0px 0px 10%;
+  box-shadow: 4px 4px 25px dodgerblue;
+}
+
+div.contentContainer h3 {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+div.contentContainer #url {
+  padding: 4px;
+  width: 75%;
+  height: 30px;
+  background-color: rgb(180, 180, 241);
+  border-radius: 20px;
+}
+
+div.contentContainer #submit {
+  padding: 10px;
+  border-radius: 20px;
+  color: whitesmoke;
+  background-color: dodgerblue;
+}
+
+div.contentContainer #submit:hover {
+  padding: 12px;
+  border-radius: 40px;
+  box-shadow: 2px 2px 20px rgb(85, 170, 255);
+}

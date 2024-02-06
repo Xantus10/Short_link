@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel='stylesheet' href='{{ url_for("static", filename="styles/default.css") }}'>
+  <link rel='stylesheet' href='{{ url_for("static", filename="styles/index.css") }}'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShortUrl</title>
+</head>
+<body>
+  <div class="headerContainer">
+    <h1>ShortUrl</h1>
+    <p>When shorter is better than longer</p>
+  </div>
+  <div class="contentContainer">
+    <h3>In a need of a short url?</h3>
+    <p>Don't worry we will shorten it for you!</p>
+    <form action="/shortened" method="post">
+      <input type="text" name="url" id="url" placeholder="Enter your URL">
+      <input type="submit" value="Shorten!" id="submit">
+    </form>
+  </div>
+  <div class="footerContainer">
+    <p>ShortUrl</p>
+    <p>2024</p>
+  </div>
+</body>
+</html>
