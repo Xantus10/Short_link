@@ -4,9 +4,11 @@ import re
 
 # TODO: add support for other protocols
 
+# Flask app
 app = Flask(__name__)
 
 
+# Convert index to url letters
 def indexToLetters(ix: int) -> str:
   ix = str(ix)
   letters = ''
@@ -16,6 +18,7 @@ def indexToLetters(ix: int) -> str:
   return letters
 
 
+# Convert url letters to index
 def lettersToIndex(letters: str) -> int:
   num = ''
   try:
@@ -26,12 +29,14 @@ def lettersToIndex(letters: str) -> int:
     return -1
 
 
+# Get the index, that comes now
 def getCurrentIndex() -> int:
   with open('./data/urls.txt', 'r') as f:
     currentIx = len(f.read().splitlines())
   return currentIx
 
 
+# Get the url, associated with index
 def getUrlByIndex(ix: int) -> str:
   with open('./data/urls.txt', 'r') as f:
     fileContents = f.read().splitlines()
@@ -40,26 +45,32 @@ def getUrlByIndex(ix: int) -> str:
   return ''
 
 
+# Validate the url (For redirect, the protocol has to be there)
 def validateUrl(url: str) -> str:
-  if not re.search('^.*www\..*$', url):
+  # If there is any protocol already specified
+  if re.search('^.+://.*$', url):
+    return url
+  # Now there is no protocol so we assume it is website and check for www
+  if not re.search('^www\..*$', url):
     url = 'www.' + url
-  if not re.search('^http.*www\..*', url):
-    url = 'https://' + url
-  return url
+  return 'https://' + url
 
 
+# Write the url into a file
 def writeUrl(url: str) -> None:
   valurl = validateUrl(url)
   with open('./data/urls.txt', 'a') as f:
     f.write(valurl+'\n')
 
 
+# Make the url short
 def makeShort(toShortUrl: str) -> str:
   short = indexToLetters(getCurrentIndex())
   writeUrl(toShortUrl)
   return short
 
 
+# Get original url from short one
 def getOriginal(shortUrl: str) -> str:
   ix = lettersToIndex(shortUrl)
   if ix < 0:
@@ -68,6 +79,7 @@ def getOriginal(shortUrl: str) -> str:
   return url
 
 
+# Route for redirections
 @app.route('/u/<short>')
 def unshortenUrl(short):
   redirectUrl = getOriginal(short)
@@ -76,6 +88,7 @@ def unshortenUrl(short):
   return render_template('urlNotExist.html')
 
 
+# Route for result of shortening
 @app.route('/shortened', methods=['POST'])
 def shortenUrl():
   toShortUrl = request.form.get('url')
@@ -83,11 +96,13 @@ def shortenUrl():
   return render_template('shortened.html', before=toShortUrl, after=f'localhost/u/{url}')
 
 
+# Favicon
 @app.route('/favicon.ico')
 def favicon():
   return send_from_directory(path.join(app.root_path, 'static/icon'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 
+# Index
 @app.route('/', methods=['GET'])
 def index():
   return render_template('index.html')
